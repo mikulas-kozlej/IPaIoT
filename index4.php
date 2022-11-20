@@ -6,7 +6,7 @@
     $fnum = $_GET["fnum"];
     $pnum = $_GET["pnum"];
 
-    $file = fopen("form_output", "w") or die("Unable to open file!");
+    $file = fopen("form_output.txt", "w") or die("Unable to open file!");
     $text = $fname . "\n" . $lname . "\n" . $date . "\n" . $email . "\n" . $fnum . "\n" . $pnum;
     fwrite($file, $text);
     fclose($file);

@@ -1,5 +1,5 @@
 <?php
-        echo '<h1> Index3.php .txt</h1>';
+        echo '<h1> Index3.php</h1>';
 
 
         $sn1 = $_GET["a"];

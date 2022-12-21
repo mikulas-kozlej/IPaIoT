@@ -37,20 +37,12 @@ var xmlHttp=createXmlHttpObject();
          document.getElementById("led").innerHTML="Yes";
          document.getElementById("open").innerHTML="CLOSE FRIDGE";
          open=1;
- 
-         var txtFile = new File("actuator.txt");
-         txtFile.writeln(open);
-         txtFile.close()
      }
      else if (open==1){
 
          document.getElementById("led").innerHTML="No";
          document.getElementById("open").innerHTML="OPEN FRIDGE"
          open=0;
-         
-         var txtFile = new File("actuator.txt");
-         txtFile.writeln(open);
-         txtFile.close()
      }
  }
 
@@ -69,7 +61,6 @@ var xhttp = new XMLHttpRequest();
   };
   xhttp.open("GET", "https://phpiotmikulas.azurewebsites.net/sensors.txt", true);
   xhttp.send();
-
   
 
 }

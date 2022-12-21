@@ -38,6 +38,9 @@ var xmlHttp=createXmlHttpObject();
          document.getElementById("open").innerHTML="CLOSE FRIDGE";
          open=1;
  
+         var txtFile = new File("actuator.txt");
+         txtFile.writeln(open);
+         txtFile.close()
      }
      else if (open==1){
 
@@ -45,6 +48,9 @@ var xmlHttp=createXmlHttpObject();
          document.getElementById("open").innerHTML="OPEN FRIDGE"
          open=0;
          
+         var txtFile = new File("actuator.txt");
+         txtFile.writeln(open);
+         txtFile.close()
      }
  }
 
@@ -56,7 +62,7 @@ var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("temperature").innerHTML =
-      this.responseText.split(";")[0]+"Â°C";
+      this.responseText.split(";")[0]+"°C";
       document.getElementById("moisture").innerHTML =
       this.responseText.split(";")[1]+"%"; 
     }

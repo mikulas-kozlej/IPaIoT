@@ -29,40 +29,42 @@ var xmlHttp=createXmlHttpObject();
   var open = 0;
 
 
-function ButtonPress(){
+ function ButtonPress(){
+     
 
-  if (open==0){
-    document.getElementById("led").innerHTML="Yes";
-    document.getElementById("open").innerHTML="CLOSE FRIDGE";
-    open=1;
-  }
-  else if (open==1){
-    document.getElementById("led").innerHTML="No";
-    document.getElementById("open").innerHTML="OPEN FRIDGE"
-    open=0;
-  }
-}
+     if (open==0){
+        
+         document.getElementById("led").innerHTML="Yes";
+         document.getElementById("open").innerHTML="CLOSE FRIDGE";
+         open=1;
+ 
+     }
+     else if (open==1){
+
+         document.getElementById("led").innerHTML="No";
+         document.getElementById("open").innerHTML="OPEN FRIDGE"
+         open=0;
+         
+     }
+ }
 
 setInterval(repeat,100);
 
 function repeat(){
 
-  var xhttp = new XMLHttpRequest();
+var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    document.getElementById("temperature").innerHTML = this.responseText.split(";")[0]+"°C";
-    document.getElementById("moisture").innerHTML = this.responseText.split(";")[1]+"%"; 
-    if(this.responseText.split(";")[2] == 1){
-      document.getElementById("led").innerHTML = "Yes";
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("temperature").innerHTML =
+      this.responseText.split(";")[0]+"°C";
+      document.getElementById("moisture").innerHTML =
+      this.responseText.split(";")[1]+"%"; 
     }
-    else{
-      document.getElementById("led").innerHTML = "No";
-    }
-  }
-};
+  };
+  xhttp.open("GET", "https://phpiotmikulas.azurewebsites.net/sensors.txt", true);
+  xhttp.send();
 
-xhttp.open("GET", "https://phpiotmikulas.azurewebsites.net/actuator.txt", true);
-xhttp.send();
+  
 
 }
 

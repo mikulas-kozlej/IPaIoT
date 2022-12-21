@@ -6,11 +6,11 @@
     <title>IoT</title>
 <?php
         
-/*        $file1 = fopen("sensors.txt","r") or die("Unable to open file!");
-        $toSplit = explode(";", file_get_contents("https://pm167web.azurewebsites.net/sensors.txt"));
+        $file1 = fopen("sensors.txt","r") or die("Unable to open file!");
+        $toSplit = explode(";", file_get_contents("https://phpiotmikulas.azurewebsites.net/sensors.txt"));
         $temp = $toSplit[0];
         $moist = $toSplit[1];
-*/        
+        
 ?>
 <script type="text/javascript">
 
@@ -61,7 +61,7 @@ var xhttp = new XMLHttpRequest();
       this.responseText.split(";")[1]+"%"; 
     }
   };
-  xhttp.open("GET", "https://pm167web.azurewebsites.net/sensors.txt", true);
+  xhttp.open("GET", "https://phpiotmikulas.azurewebsites.net/sensors.txt", true);
   xhttp.send();
 
   

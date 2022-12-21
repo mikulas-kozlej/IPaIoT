@@ -1,14 +1,13 @@
 <?php
     echo '<h1>getParameters page</h1>';
 
-        $sn1 = $_GET["a"];
-        $sn2 = $_GET["b"];
+        $sn1 = $_GET["temperature"];
+        $sn2 = $_GET["humidity"];
 
-        $text = "a=" . $sn1 . " b=" . $sn2;
-        $distsq = $sn1 * $sn1 + $sn2 *  $sn2;
-
-        echo $text;
-        echo "<br>";
-        echo "Distance squared:" . $distsq;
+        $file = fopen("sensors.txt", "w") or die("Unable to open file!");
+        $text = $sn1 . ";" . $sn2;
+        fwrite($file, $text);
+        fclose($file);
+        
 
 ?>

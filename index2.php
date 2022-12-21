@@ -3,10 +3,9 @@
 
         $temp = $_GET["temperature"];
         $hum = $_GET["humidity"];
-        $isopen = $_GET["isopen";]
 
         $file = fopen("sensors.txt", "w") or die("Unable to open file!");
-        $text = $temp . ";" . $hum .";" . $isopen; 
+        $text = $temp . ";" . $hum; 
         fwrite($file, $text);
         fclose($file);
 ?>
